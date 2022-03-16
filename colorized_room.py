@@ -101,15 +101,24 @@ def room_colorizer(layout):
                     if j < width - 1:
                         if val[j + 1] == "#":
                             count += 1
-
+    # Upto this point, the layout array is modified and unique integers are inserted in place of spaces.
+    # These unique integers will now be replaced with a color
     tmp = []
     for line in layout:
+        x = []
         for elem in line:
-            if elem not in (" ", "#") and elem not in tmp:
-                tmp.append(elem)
+            if elem not in (" ", "#"):
+                if elem not in tmp:
+                    tmp.append(elem)
+                x.append("{} {}".format(Colors.map[tmp.index(elem)], Colors.nocolor))
+            else:
+                x.append(elem)
+        print ("".join(x))
         # print (tmp)
-        print(
-            "".join([x if x in ("#", " ") else "{} {}".format(Colors.map[tmp.index(x)], Colors.nocolor) for x in line]))
+        # print(
+        #     "".join([x if x in ("#", " ") else "{} {}".format(Colors.map[tmp.index(x)], Colors.nocolor) for x in line]))
+    del(tmp)
+    del(x)
 
 ### Let's create a 2D list layout using the given pattern
 for pattern in patterns:
@@ -121,9 +130,4 @@ for pattern in patterns:
             layoutmap.append(x)
     room_colorizer(layoutmap)
     print ("\n")
-
-
-
-
-
 
