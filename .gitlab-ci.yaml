@@ -1,9 +1,3 @@
-stages:
-  - build
-  - test
-  - deploy
-  - final
-    
 .build-code:
   stage: build
   script:
@@ -22,8 +16,4 @@ stages:
     - echo "This step will build the code"
     - echo "Env Variable ${deploy_val}"
 
-final_stage:
-  stage: final
-  script:
-    - echo "This step will build the code"
 
