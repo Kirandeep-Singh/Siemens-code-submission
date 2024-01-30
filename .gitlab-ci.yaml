@@ -11,13 +11,13 @@ stages:
     - echo "Env Variable ${build_val}"
 
 .test-code:
-  stage: build
+  stage: test
   script:
     - echo "This step will build the code"
     - echo "Env Variable ${test_val}"
 
 .deploy-code:
-  stage: build
+  stage: deploy
   script:
     - echo "This step will build the code"
     - echo "Env Variable ${deploy_val}"
