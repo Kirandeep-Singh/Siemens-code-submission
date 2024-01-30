@@ -1,27 +1,29 @@
 stages:
-    - build
-    - test
-    - deploy
-
+  - build
+  - test
+  - deploy
+  - final
+    
 .build-code:
-    stage: build
-    script:
-        - echo "This step will build the code"
-        - echo "Env Variable ${build_val}"
+  stage: build
+  script:
+    - echo "This step will build the code"
+    - echo "Env Variable ${build_val}"
 
 .test-code:
-    stage: test
-    script:
-        - echo "This step will build the code"
-        - echo "Env Variable ${test_val}"
+  stage: build
+  script:
+    - echo "This step will build the code"
+    - echo "Env Variable ${test_val}"
 
 .deploy-code:
-    stage: deploy
-    script:
-        - echo "This step will build the code"
-        - echo "Env Variable ${deploy_val}"
+  stage: build
+  script:
+    - echo "This step will build the code"
+    - echo "Env Variable ${deploy_val}"
 
 final_stage:
-    script:
-        - echo "Template execution is complete."
+  stage: final
+  script:
+    - echo "This step will build the code"
 
